@@ -1,0 +1,7 @@
+{
+  "name": "ionicWebpageV3",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}

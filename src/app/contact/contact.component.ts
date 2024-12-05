@@ -17,7 +17,6 @@ import { FooterComponent } from '../footer/footer.component';
     styleUrls: ['./contact.component.scss'],
     standalone: true,
     imports: [IonList, IonTextarea, IonCard, IonItem, IonNote, IonCol, IonGrid, IonRow, IonInput, IonButton, IonToolbar, IonTitle, IonContent, HeaderComponent, FooterComponent, ReactiveFormsModule, CommonModule],
-    // imports: [IonList, IonTextarea, IonCard, IonItem, IonNote, IonCol, IonGrid, IonRow, IonInput, IonButton, IonToolbar, IonTitle, IonContent, ReactiveFormsModule, CommonModule],
     
     // providers: [ReCaptchaV3Service]
 })
@@ -32,7 +31,7 @@ export class ContactComponent  implements OnInit {
   // constructor(private recaptchaService: ReCaptchaV3Service) { }
   constructor() {
     console.log('Database?', this.db)
-    // console.log('HTTP', this.http)
+    console.log('HTTP', this.http)
   }
 
   isSubmitted = false;
@@ -66,11 +65,23 @@ export class ContactComponent  implements OnInit {
   }
 
   onSubmit() {
-    // this.recaptchaService.execute('contact')
-    // .subscribe((token) => {
-    //   console.log(token, 'token')
-    //   this.verifyRecaptcha(token);
-    // })
+    this.recaptchaService.execute('contact')
+    .subscribe((token) => {
+      console.log(token, 'token')
+      this.verifyRecaptcha(token);
+    })
+  }
+
+  verifyRecaptcha(token: string) {
+    const url = 'https://us-central1-ionicwebpage.cloudfunctions.net/checkRecaptcha';
+    const headers = new HttpHeaders().set('Content-Type', 'application/json')
+      
+    this.http.post(url, { token }, { headers }).subscribe((response: any) => {
+      console.log(response, 'response')
+      this.zone.run(() => {
+        const score = response.score;
+        console.log(response, 'data')
+        if (score >= 0.5) {
           this.isSubmitted = true
           const value = this.contactForm.value;
           const name = value.name;
@@ -92,58 +103,16 @@ export class ContactComponent  implements OnInit {
               this.uiService.presentToast('Error in sending message', 4000);
               this.contactForm.reset();
               this.isSubmitted = false;
-              // this.router.navigate(['/']);
+              this.router.navigate(['/']);
               throw error;
             });
-        // } else {
-        //   this.uiService.presentToast('Please complete the reCAPTCHA', 4000);
-        //   console.log('There was an error with recaptcha')
-        // }
-      }
-    }
-  
-
-
-  // verifyRecaptcha(token: string) {
-  //   const url = 'https://us-central1-ionicwebpage.cloudfunctions.net/checkRecaptcha';
-  //   const headers = new HttpHeaders().set('Content-Type', 'application/json')
-      
-  //   this.http.post(url, { token }, { headers }).subscribe((response: any) => {
-  //     console.log(response, 'response')
-  //     this.zone.run(() => {
-  //       const score = response.score;
-  //       console.log(response, 'data')
-  //       if (score >= 0.5) {
-  //         this.isSubmitted = true
-  //         const value = this.contactForm.value;
-  //         const name = value.name;
-  //         const email = value.email;
-  //         const subject = value.subject;
-  //         const message = value.message;
-  //         const formRequest = { name, email, subject, message };
-  //         const messagesRef = ref(this.db, '/messages');
-  //         const newMessageRef = push(messagesRef);
-  //         set(newMessageRef, { ...formRequest })
-  //           .then(() => {
-  //             // console.log(formRequest, 'What is showing here');
-  //             this.contactForm.reset();
-  //             this.uiService.presentToast('Your message was sent', 4000);
-  //             this.router.navigate(['/']);
-  //           })
-  //           .catch((error) => {
-  //             // console.log(error, 'Error in sending message');
-  //             this.uiService.presentToast('Error in sending message', 4000);
-  //             this.contactForm.reset();
-  //             this.isSubmitted = false;
-  //             this.router.navigate(['/']);
-  //             throw error;
-  //           });
-  //       } else {
-  //         this.uiService.presentToast('Please complete the reCAPTCHA', 4000);
-  //         console.log('There was an error with recaptcha')
-  //       }
-  //     })
-  //   })
-  // }
+        } else {
+          this.uiService.presentToast('Please complete the reCAPTCHA', 4000);
+          console.log('There was an error with recaptcha')
+        }
+      })
+    })
+  }
+}
 
 

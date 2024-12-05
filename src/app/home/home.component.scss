@@ -1,0 +1,125 @@
+ion-menu-button {
+  color: var(--ion-color-primary);
+}
+
+// #container {
+//   text-align: center;
+//   position: absolute;
+//   left: 0;
+//   right: 0;
+//   top: 50%;
+//   transform: translateY(-50%);
+// }
+
+// #container strong {
+//   font-size: 20px;
+//   line-height: 26px;
+// }
+
+// #container p {
+//   font-size: 16px;
+//   line-height: 22px;
+//   color: #8c8c8c;
+//   margin: 0;
+// }
+
+// #container a {
+//   text-decoration: none;
+// }
+
+.canvasWrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  // overflow: hidden;
+  // width: 100%;
+  cursor: pointer;
+  color: white;
+
+}
+
+.construction { 
+  font-size: 3rem;
+  color: black;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 5;
+}
+
+
+// #rendererContainer {
+//   position: fixed;
+//   width: 100%;
+//   height: 100%;
+//   display: block;
+//   top: 0;
+//   left: 0;
+//   z-index: -1;
+//   overflow: hidden;
+// }
+
+.header {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 6;
+  overflow: hidden;
+  width: 100%;
+  // color: white;
+
+}
+
+.side {
+  display: flex;
+  justify-content: flex-start;
+  position: absolute;
+  z-index: 3;
+  background-color: black;
+  
+  h1 {
+
+    text-transform: uppercase;
+    color: white;
+    position: absolute;
+    font-size: 8rem;
+    left: 23%;
+    top: 50%;
+    transform: translate(-50%, 150%) rotate(-90deg);
+    transition: transform 300ms ease-in-out;
+  }
+  // h1:hover {
+  //   // color: red;
+  //   opacity: 0.5;
+  //   mix-blend-mode: color-dodge;
+  //   // transform: translateX(-40%, 150%) rotate(-90deg);
+  // }
+}
+
+.right {
+  display: flex;
+  justify-content: flex-end;
+  // position: absolute;
+  z-index: 3;
+  background-color: black;
+
+  
+  h1 {
+    text-transform: uppercase;
+    color: white;
+    position: absolute;
+    font-size: 8rem;
+    right: -1%;
+    top: 50%;
+    transform: translate(50%, -20%) rotate(-90deg);
+  }
+  h1:hover {
+    // color: red;
+    opacity: 0.5;
+    mix-blend-mode: difference;
+  }
+}

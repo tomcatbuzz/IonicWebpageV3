@@ -73,7 +73,8 @@ export class ContactComponent  implements OnInit {
   }
 
   verifyRecaptcha(token: string) {
-    const url = 'https://us-central1-ionicwebpage.cloudfunctions.net/checkRecaptcha';
+    // const url = 'https://us-central1-ionicwebpage.cloudfunctions.net/checkRecaptcha';
+    const url = 'https://us-central1-ionicwebpagev3.cloudfunctions.net/checkRecaptcha';
     const headers = new HttpHeaders().set('Content-Type', 'application/json')
       
     this.http.post(url, { token }, { headers }).subscribe((response: any) => {

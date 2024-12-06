@@ -3,12 +3,12 @@ import { Component, ElementRef, HostListener, OnDestroy, OnInit, ViewChild, inje
 import { IonHeader, IonToolbar, IonButtons, IonMenuButton, IonTitle, IonContent } from '@ionic/angular/standalone';
 
 import { HeaderComponent } from '../header/header.component';
-import * as THREE from 'three';
-import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
+// import * as THREE from 'three';
+// import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 import { FooterComponent } from '../footer/footer.component';
 import { ShuffleComponent } from '../shuffle/shuffle.component';
 import { gsap } from 'gsap';
-// import { cube } from 'ionicons/icons';
+
 // import model from '../../assets/facefull.glb'
 import { CanvasCaseComponent } from '../canvas-case/canvas-case.component';
 
@@ -19,7 +19,8 @@ import { CanvasCaseComponent } from '../canvas-case/canvas-case.component';
     imports: [IonHeader, IonToolbar, IonButtons, IonMenuButton, IonTitle, IonContent, HeaderComponent, FooterComponent, ShuffleComponent, CanvasCaseComponent],
     standalone: true
 })
-export class HomeComponent  implements OnInit {  
+export class HomeComponent  implements OnInit, OnDestroy {  
+  private timeline: GSAPTimeline | null = null;
 
   constructor() { 
   }
@@ -29,9 +30,24 @@ export class HomeComponent  implements OnInit {
     // this.animate();
     // this.onWindowResize()
   }
+
+  ngOnDestroy() {
+    if (this.timeline) {
+      this.timeline.kill();
+    }
+  }
     
   init() {
-
+    this.timeline = gsap.timeline({ 
+      defaults: {
+        duration: 2, 
+        ease: 'power1.in',
+        delay: 1
+      } 
+    });
+    this.timeline.fromTo('.canvasWrapper', { opacity: 0 },
+      { opacity: 1, duration: 1.7, ease: 'sin.inOut' }
+    );
     console.log('nothing')
   }
 }

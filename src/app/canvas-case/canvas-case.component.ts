@@ -128,9 +128,12 @@ createCubes() {
     }
   `;
 
-  const gridSize = Math.cbrt(512); // Create a grid of 512 cubes (8x8x8)
-  const size = 1; // Size of each small cube
-  const gap = 0.1; // Gap between cubes
+  // const gridSize = Math.cbrt(512); // Create a grid of 512 cubes (8x8x8)
+  const gridSize = Math.cbrt(1728); // Create a grid of 1728 cubes (12x12x12)
+  // const size = 1; // Size of each small cube
+  const size = 0.5; // Size of each small cube
+  // const gap = 0.1; // Gap between cubes
+  const gap = 0.03; // Gap between cubes
 
   // Shader Material
   const material = new THREE.ShaderMaterial({
@@ -145,26 +148,6 @@ createCubes() {
     }
   });
 
-  // My Original cube loop
-  // for (let x = 0; x < gridSize; x++) {
-  //   for (let y = 0; y < gridSize; y++) {
-  //     for (let z = 0; z < gridSize; z++) {
-  //       const geometry = new THREE.BoxGeometry(size, size, size);
-  //       // const material = new THREE.MeshNormalMaterial(); // Placeholder material, will replace with ShaderMaterial
-  //       const cube = new THREE.Mesh(geometry, material);
-  //       cube.scale.set(window.innerWidth / window.innerHeight, 1, 1);
-  //       cube.position.set(
-  //         x * (size + gap) - (gridSize / 2) * (size + gap),
-  //         y * (size + gap) - (gridSize / 2) * (size + gap),
-  //         z * (size + gap) - (gridSize / 2) * (size + gap)
-  //       );
-
-  //       // cube.scale.set(0.5, 0.5, 0.5)
-  //       this.scene.add(cube);
-  //       this.cubes.push(cube);
-  //     }
-  //   }
-  // }
   for (let x = 0; x < gridSize; x++) {
     for (let y = 0; y < gridSize; y++) {
       for (let z = 0; z < gridSize; z++) {
@@ -223,13 +206,6 @@ animate() {
   // this.mesh.rotation.y += 0.002;
   const time = this.clock.getElapsedTime();
 
-  // Error on [index] possibly with forEach usage
-  // this.cubes.forEach(cube => {
-  //   const material = cube.material as THREE.ShaderMaterial;
-  //   material.uniforms['time'].value = time;
-
-  //   cube.position.z = this.basePositions[index].z + Math.sin(time * 2 + cube.position.x * 5) * 0.1;
-
   for (let i = 0; i < this.cubes.length; i++) {
     const cube = this.cubes[i];
     const material = cube.material as THREE.ShaderMaterial;
@@ -240,18 +216,6 @@ animate() {
     newPosition.z += Math.sin(time * 2 + newPosition.x * 5) * 0.1;
     cube.position.copy(newPosition);
   }
-
-    // original code might not have been working
-    // if (material.uniforms['time']) {
-    //   material.uniforms['time'].value = time;
-    //   material.uniforms['hoverPosition'].value.copy(this.hoverPosition);
-    //   material.uniforms['hoverStrength'].value = this.hoverStrength;
-    // }
-  // });
-  // this.cubes.forEach(cube => {
-  //   cube.rotation.x += 0.01;
-  //   cube.rotation.y += 0.01;
-  // })
   this.renderer.render(this.scene, this.camera);
 }
 
@@ -267,18 +231,6 @@ onMouseMove(event: MouseEvent) {
 
   this.currentColorIndex = (this.currentColorIndex + 1) % this.colorCycle.length;
   const nextColor = this.colorCycle[this.currentColorIndex];
-
-  // Reset interaction Original, maybe broken?
-  // this.cubes.forEach((cube, index) => {
-  //   const material = cube.material as THREE.ShaderMaterial;
-  //   material.uniforms['mouseStrength'].value = 0;
-
-  //   gsap.to(cube.position, {
-  //     z: this.basePositions[index].z, 
-  //     duration: 0.5,
-  //     ease: 'power2.out'
-  //   })
-  // });
 
   // reset cubes
   this.cubes.forEach(cube => {
@@ -298,7 +250,7 @@ onMouseMove(event: MouseEvent) {
       g: nextColor.g,
       b: nextColor.b,
       duration: 0.8,
-      ease: 'circ.inOut'
+      ease: 'sin.inOut'
     });
   })
 
@@ -329,28 +281,6 @@ onMouseMove(event: MouseEvent) {
       })
     });
   }
-
-  // ORIGINAL code may not be working
-  // if (intersects.length > 0) {
-  //   const intersectedCube = intersects[0].object;
-  //   this.hoverPosition.copy(intersectedCube.position);
-
-  //   // Animate hoverStrength using gsap
-  //   this.cubes.forEach(cube => {
-  //     const material = cube.material as THREE.ShaderMaterial;
-  //     gsap.to(material.uniforms['hoverStrength'], {
-  //       value: 1.5,
-  //       duration: 0.3,
-  //       onComplete: () => {
-  //         gsap.to(material.uniforms['hoverStrength'], {
-  //           value: 0,
-  //           duration: 0.3
-  //         });
-  //       // console.log(material.uniforms['hoverStrength'], "what is here")
-  //       }
-  //     });
-  //   });
-  // }
 }
 
 ngOnDestroy() {

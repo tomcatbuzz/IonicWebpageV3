@@ -50,6 +50,15 @@ ion-menu-button {
   z-index: 5;
 }
 
+.showcase {
+  position: absolute;
+  z-index: 5;
+  bottom: 10%;
+  left: 50%;
+  transform: translate(-10%, -50%);
+
+}
+
 
 // #rendererContainer {
 //   position: fixed;
@@ -123,3 +132,4 @@ ion-menu-button {
     mix-blend-mode: difference;
   }
 }
+

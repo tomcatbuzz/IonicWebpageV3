@@ -1,13 +1,74 @@
+// .class1 {
+//   --border-color: #0bb8cc;
+//   --border-width: 3px;
+//   --border-style: solid;
+//   --border-radius: 5px;
+// }
+
+// .class1:not(.linkButtons) {
+//   border-bottom: solid 3px #0bb8cc;
+// }
+
+// .linkButtons:after {
+//   display: block;
+//   content: '';
+//   border-bottom: solid 3px #0bb8cc;
+//   transform: scaleX(0); 
+//   transition: transform 250ms ease-in-out;
+// }
+
+// .linkButtons:hover::after {
+//   transform: scaleX(1);
+// }
+
+/* Active link underline */
 .class1 {
-  --border-color: #0bb8cc;
-  --border-width: 3px;
-  --border-style: solid;
-  --border-radius: 5px;
+  position: relative;
+  &::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -3px; /* Adjust as needed */
+    width: 100%;
+    border-bottom: solid 3px #0bb8cc;
+  }
 }
+
+/* Hover effect for non-active links */
+.linkButtons {
+  position: relative;
+  &:not(.class1)::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -3px; /* Adjust as needed */
+    width: 100%;
+    border-bottom: solid 3px #0bb8cc;
+    transform: scaleX(0);
+    transition: transform 250ms ease-in-out;
+  }
+
+  &:not(.class1):hover::after {
+    transform: scaleX(1);
+  }
+}
+
 
 .logo {
   font-family: 'Abril Fatface';
   font-weight: lighter;
+}
+
+ion-icon.headerIcon {
+  pointer-events: all;
+}
+
+.headerIcon {
+  transition: transform 250ms ease-in-out;
+}
+
+.headerIcon:hover {
+  transform: rotate(45deg);
 }
 
 ion-label {

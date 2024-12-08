@@ -5,7 +5,7 @@ import { IonHeader, IonButtons, IonButton, IonMenuButton, IonIcon, IonLabel, Ion
     selector: 'app-footer',
     templateUrl: './footer.component.html',
     styleUrls: ['./footer.component.scss'],
-    imports: [IonToolbar],
+    imports: [IonToolbar, IonButtons, IonButton, IonIcon],
     standalone: true
 })
 export class FooterComponent  implements OnInit {

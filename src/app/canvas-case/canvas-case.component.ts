@@ -275,10 +275,12 @@ onMouseMove(event: MouseEvent) {
       });
 
       gsap.to(cube.position, {
+        
         z: cube.position.z + 0.5,
         duration: 0.3,
         ease: 'power2.out'
       })
+      // console.log(cube.position, 'cube position')
     });
   }
 }

@@ -1,16 +1,30 @@
 <app-header></app-header>
 
 <ion-content [fullscreen]="true">
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col size="4">
+        <div class="header">
+          <h1><app-shuffle [text] ="'Anthony Buzzelli'" [duration]="0.1" [stagger]="0.05" [shuffleCount]="3"></app-shuffle></h1>
+        </div>
+      </ion-col>
+      <ion-col size="8">
+        <div class="canvasWrapper">
+          <app-canvas-case />
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
   <div class="construction">
     Under Construction
   </div>
   <!-- <div #rendererContainer> -->
-    <div class="header">
+    <!-- <div class="header">
       <h1><app-shuffle [text] ="'Anthony Buzzelli'" [duration]="0.1" [stagger]="0.05" [shuffleCount]="3"></app-shuffle></h1>
-    </div>
-    <div class="canvasWrapper">
+    </div> -->
+    <!-- <div class="canvasWrapper">
       <app-canvas-case />
-    </div>
+    </div> -->
     
     <!-- <div class="side">
       <h1 class="creative">Creative></h1>

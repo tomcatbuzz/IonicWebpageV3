@@ -1,7 +1,72 @@
 <app-header></app-header>
 
 <ion-content [fullscreen]="true">
-  <ion-grid fixed>
+  <ion-content>
+    <!-- Hero Section -->
+    <ion-grid>
+      <ion-row class="ion-align-items-center ion-justify-content-between full-height">
+        <!-- Left Column: Text Content -->
+        <ion-col size="12" size-md="6" class="text-content">
+          <div class="hero-text">
+            <h1>Welcome to My Portfolio</h1>
+            <p class="tagline">Crafting innovative solutions with passion and precision</p>
+            
+            <div class="cta-buttons">
+              <ion-button expand="block" fill="solid" color="primary" (click)="navigateToProjects()">
+                View Projects
+                <ion-icon name="rocket-outline" slot="end"></ion-icon>
+              </ion-button>
+              
+              <ion-button expand="block" fill="outline" color="secondary" (click)="navigateToContact()">
+                Contact Me
+                <ion-icon name="send-outline" slot="end"></ion-icon>
+              </ion-button>
+            </div>
+          </div>
+        </ion-col>
+        
+        <!-- Right Column: Image/WebGL Canvas -->
+        <ion-col size="12" size-md="6" class="visual-content">
+          <div class="hero-visual">
+            <!-- <div class="canvasWrapper">
+              <app-canvas-case />
+            </div> -->
+            <!-- Replace with your WebGL canvas or image -->
+            <img src="assets/Me-Nov-24-NEW.jpg" alt="Hero Visual" class="hero-image">
+            <!-- Or use a canvas element for WebGL -->
+            <!-- <canvas #heroCanvas class="hero-canvas"></canvas> -->
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  
+    <!-- Scrollable Indicator Section -->
+    <ion-grid class="scroll-indicator-section">
+      <ion-row class="ion-align-items-center">
+        <ion-col size="12" class="text-center">
+          <h2>Explore My Projects</h2>
+          <ion-icon name="chevron-down-outline" class="scroll-icon"></ion-icon>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  
+    <!-- Projects Preview Section -->
+    <ion-grid class="projects-preview">
+      <ion-row>
+        <ion-col size="12">
+          <ion-list>
+            <ion-item *ngFor="let project of projects">
+              <ion-label>
+                <h2>{{ project.title }}</h2>
+                <p>{{ project.description }}</p>
+              </ion-label>
+            </ion-item>
+          </ion-list>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-content>
+  <!-- <ion-grid fixed>
     <ion-row>
       <ion-col size="4">
         <div class="header">
@@ -17,7 +82,7 @@
   </ion-grid>
   <div class="construction">
     Under Construction
-  </div>
+  </div> -->
   <!-- <div #rendererContainer> -->
     <!-- <div class="header">
       <h1><app-shuffle [text] ="'Anthony Buzzelli'" [duration]="0.1" [stagger]="0.05" [shuffleCount]="3"></app-shuffle></h1>
@@ -34,9 +99,9 @@
       <h1 class="dev">Developer</h1>
     </div> -->
   <!-- </div> -->
-    <div class="showcase">
+    <!-- <div class="showcase">
       <h2>Showcase</h2>
-    </div> 
+    </div>  -->
 </ion-content>
 
 <app-footer></app-footer>

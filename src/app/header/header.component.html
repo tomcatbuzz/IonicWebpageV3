@@ -32,7 +32,7 @@
       <ion-toggle 
         aria-label="Primary toggle" 
         color="primary"
-        [checked]="isDarkMode"
+        [(ngModel)]="isDarkMode"
         (ionChange)="toggleDarkMode($event)"
         labelPlacement="start" alignment="center">{{ isDarkMode ? 'Dark' : 'Light'}}
       </ion-toggle>

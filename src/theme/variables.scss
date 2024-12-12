@@ -77,11 +77,31 @@
   --ion-color-light-tint: #f5f6f9;
 }
 
+.dark {
+  --ion-background-color: #121212;
+  --ion-background-color-rgb: 18,18,18;
+
+  --ion-text-color: #ffffff;
+  --ion-text-color-rgb: 255,255,255;
+
+  --ion-border-color: #222222;
+}
+
 @media (prefers-color-scheme: dark) {
   /*
    * Dark Colors
    * -------------------------------------------
    */
+
+  .dark {
+    --ion-background-color: #121212;
+    --ion-background-color-rgb: 18,18,18;
+
+    --ion-text-color: #ffffff;
+    --ion-text-color-rgb: 255,255,255;
+
+    --ion-border-color: #222222;
+  }
 
   body {
     --ion-color-primary: #428cff;

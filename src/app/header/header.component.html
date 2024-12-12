@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-toolbar color="primary" >
+  <ion-toolbar>
     <ion-buttons slot="start">
       <ion-menu-button class="hide-lg"></ion-menu-button>
       <ion-button class="logo" routerLink="/home">Anthony Buzzelli<ion-icon class="headerIcon" size="large" slot="start" src="../../assets/Group 1.svg"></ion-icon></ion-button>
@@ -23,12 +23,19 @@
           Projects
         </ion-label>
       </ion-button>
-      <ion-button class="linkButtons" routerLink="/contact" routerLinkActive="class1">
+      <ion-button class="linkButtons contact" routerLink="/contact" routerLinkActive="class1">
         <!-- <ion-icon slot="start" ios="bookmark-outline" md="bookmark-sharp"></ion-icon> -->
         <ion-label>
           Contact
         </ion-label>
       </ion-button>
+      <ion-toggle 
+        aria-label="Primary toggle" 
+        color="primary"
+        [checked]="isDarkMode"
+        (ionChange)="toggleDarkMode($event)"
+        labelPlacement="start" alignment="center">{{ isDarkMode ? 'Dark' : 'Light'}}
+      </ion-toggle>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>

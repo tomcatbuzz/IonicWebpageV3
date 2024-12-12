@@ -1,25 +1,6 @@
-// .class1 {
-//   --border-color: #0bb8cc;
-//   --border-width: 3px;
-//   --border-style: solid;
-//   --border-radius: 5px;
-// }
-
-// .class1:not(.linkButtons) {
-//   border-bottom: solid 3px #0bb8cc;
-// }
-
-// .linkButtons:after {
-//   display: block;
-//   content: '';
-//   border-bottom: solid 3px #0bb8cc;
-//   transform: scaleX(0); 
-//   transition: transform 250ms ease-in-out;
-// }
-
-// .linkButtons:hover::after {
-//   transform: scaleX(1);
-// }
+ion-toolbar {
+  --border-style: none;
+}
 
 /* Active link underline */
 .class1 {
@@ -53,10 +34,10 @@
   }
 }
 
-
 .logo {
   font-family: 'Abril Fatface';
-  font-weight: lighter;
+  font-weight: bolder;
+  color: black;
 }
 
 ion-icon.headerIcon {
@@ -73,7 +54,16 @@ ion-icon.headerIcon {
 
 ion-label {
   font-family: 'Poppins';
-  font-weight: bolder;
+  font-weight: lighter;
+  color: black;
+}
+
+.contact {
+  margin-right: 2rem;
+}
+
+ion-toggle {
+  margin-right: 1rem;
 }
 
 @media (max-width: 768px) {

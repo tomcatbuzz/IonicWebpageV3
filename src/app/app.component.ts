@@ -15,8 +15,7 @@ import { mailOutline, mailSharp, paperPlaneOutline, paperPlaneSharp, heartOutlin
     
 })
 export class AppComponent {
-  // loading = true; 
-  // private router = inject(Router);
+  
   public appPages = [
     { title:'Home', url: '/home', icon: 'mail' },
     { title: 'About', url: '/about', icon: 'mail' },
@@ -26,13 +25,5 @@ export class AppComponent {
 
   constructor() {
     addIcons({ mailOutline, mailSharp, paperPlaneOutline, paperPlaneSharp, heartOutline, heartSharp, archiveOutline, archiveSharp, trashOutline, trashSharp, warningOutline, warningSharp, bookmarkOutline, bookmarkSharp });
-
-    // this.router.events.subscribe(event => {
-    //   if (event instanceof NavigationStart) {
-    //     this.loading = true;
-    //   } else if (event instanceof NavigationEnd) {
-    //     this.loading = false;
-    //   }
-    // })
   }
 }

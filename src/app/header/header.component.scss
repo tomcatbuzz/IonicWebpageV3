@@ -37,7 +37,7 @@ ion-toolbar {
 .logo {
   font-family: 'Abril Fatface';
   font-weight: bolder;
-  color: black;
+  // color: var(ion-text);
 }
 
 ion-icon.headerIcon {
@@ -55,7 +55,7 @@ ion-icon.headerIcon {
 ion-label {
   font-family: 'Poppins';
   font-weight: lighter;
-  color: black;
+  // color: black;
 }
 
 .contact {

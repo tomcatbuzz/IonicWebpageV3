@@ -2,7 +2,7 @@ import { Component, ElementRef, HostListener, OnDestroy, OnInit, ViewChild, inje
 import { RouterLink } from '@angular/router';
 import { NgForOf } from '@angular/common';
 // import { ActivatedRoute } from '@angular/router';
-import { IonToolbar, IonButtons, IonButton, IonMenuButton, IonTitle, IonContent, IonGrid, IonCol, IonRow, IonIcon, IonLabel, IonList, IonItem, IonImg } from '@ionic/angular/standalone';
+import { IonToolbar, IonButtons, IonButton, IonMenuButton, IonTitle, IonContent, IonGrid, IonCol, IonRow, IonIcon, IonLabel, IonList, IonItem, IonImg, IonRippleEffect } from '@ionic/angular/standalone';
 
 import { HeaderComponent } from '../header/header.component';
 // import * as THREE from 'three';
@@ -21,7 +21,7 @@ import { addIcons } from 'ionicons';
     selector: 'app-home',
     templateUrl: './home.component.html',
     styleUrls: ['./home.component.scss'],
-    imports: [RouterLink, NgForOf, IonImg, IonItem, IonList, IonIcon, IonLabel, IonRow, IonCol, IonGrid, IonToolbar, IonButtons, IonButton, IonMenuButton, IonTitle, IonContent, HeaderComponent, FooterComponent, ShuffleComponent, CanvasCaseComponent],
+    imports: [IonRippleEffect, RouterLink, NgForOf, IonImg, IonItem, IonList, IonIcon, IonLabel, IonRow, IonCol, IonGrid, IonToolbar, IonButtons, IonButton, IonMenuButton, IonTitle, IonContent, HeaderComponent, FooterComponent, ShuffleComponent, CanvasCaseComponent],
     standalone: true
 })
 export class HomeComponent  implements OnInit, OnDestroy {  

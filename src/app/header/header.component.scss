@@ -11,7 +11,7 @@ ion-toolbar {
     left: 0;
     bottom: -3px; /* Adjust as needed */
     width: 100%;
-    border-bottom: solid 3px #0bb8cc;
+    border-bottom: solid 3px var(--ion-color-primary);
   }
 }
 
@@ -24,7 +24,8 @@ ion-toolbar {
     left: 0;
     bottom: -3px; /* Adjust as needed */
     width: 100%;
-    border-bottom: solid 3px #0bb8cc;
+    // border-bottom: solid 3px #0bb8cc;
+    border-bottom: solid 3px var(--ion-color-primary);
     transform: scaleX(0);
     transition: transform 250ms ease-in-out;
   }
@@ -32,7 +33,43 @@ ion-toolbar {
   &:not(.class1):hover::after {
     transform: scaleX(1);
   }
+
+  &.contact {
+    overflow: hidden; /* Ensure the background stays within the button */
+    transition: color 250ms ease-in-out;
+
+    ion-label {
+      position: relative;
+      z-index: 1; /* Ensure label stays on top */
+      color: var(--ion-color-primary);
+      transition: color 250ms ease-in-out;
+    }
+
+    &:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: var(--ion-color-primary);
+      z-index: 0;
+      border-radius: 50px;
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 250ms ease-in-out;
+    }
+
+    &:hover:before {
+      transform: scaleX(1);
+    }
+
+    &:hover ion-label {
+      color: white; /* Change text color on hover */
+    }
+  }
 }
+
 
 .logo {
   font-family: 'Abril Fatface';
@@ -54,7 +91,7 @@ ion-icon.headerIcon {
 
 ion-label {
   font-family: 'Poppins';
-  font-weight: lighter;
+  font-weight: bolder;
   // color: black;
 }
 

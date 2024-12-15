@@ -28,10 +28,9 @@ export class ContactComponent  implements OnInit {
   private zone = inject(NgZone)
   private recaptchaService = inject(ReCaptchaV3Service)
 
-  // constructor(private recaptchaService: ReCaptchaV3Service) { }
   constructor() {
-    console.log('Database?', this.db)
-    console.log('HTTP', this.http)
+    // console.log('Database?', this.db)
+    // console.log('HTTP', this.http)
   }
 
   isSubmitted = false;

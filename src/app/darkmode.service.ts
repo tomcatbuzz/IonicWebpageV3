@@ -37,5 +37,6 @@ export class DarkModeService {
 
   private applyDarkMode(isDarkMode: boolean) {
     document.body.classList.toggle('dark', isDarkMode);
+    // document.body.classList.add('transition');
   }
 }

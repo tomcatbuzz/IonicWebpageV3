@@ -36,12 +36,17 @@
         </ion-label>
       </ion-button>
       <ion-toggle 
-        aria-label="Primary toggle" 
+        aria-label="Dark mode toggle" 
         color="primary"
         [(ngModel)]="isDarkMode"
         (ionChange)="toggleDarkMode()"
         labelPlacement="start" alignment="center">{{ isDarkMode ? 'Light' : 'Dark'}}
       </ion-toggle>
+      <ion-label>
+        <img class="toggleIcons" [ngClass]="{'lightIcon': currentIcon === lightIcon, 'darkIcon': currentIcon === darkIcon}" [src]="currentIcon" alt="dark mode icon" />
+        <!-- <img class="toggleIcons" [src]="currentIcon === lightIcon ? lightIcon : darkIcon"
+        alt="dark mode icon" /> -->
+      </ion-label>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>

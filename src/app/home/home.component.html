@@ -34,7 +34,9 @@
             </div> -->
             <!-- Replace with your WebGL canvas or image -->
             <div class="image-container">
-              <img src="assets/Me-Nov-24-NEW.jpg" alt="Hero Visual" class="hero-image">
+              <!-- <img src="assets/Me-Nov-24-NEW.jpg" alt="Hero Visual" class="hero-image"> -->
+              <img [src]="isDarkMode ? darkModeImage : lightModeImage" 
+                [alt]="isDarkMode ? 'Dark mode image' : 'Light mode Image'" class="hero-image">
             </div>
             <!-- Or use a canvas element for WebGL -->
             <!-- <canvas #heroCanvas class="hero-canvas"></canvas> -->

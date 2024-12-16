@@ -103,6 +103,13 @@ ion-toggle {
   margin-right: 1rem;
 }
 
+.toggleIcons {
+  width: 32px;
+  height: 32px;
+  margin-left: 5px;
+  transition: filter 250ms ease-in-out; /* Apply yellow color filter for light mode icon */ &.lightIcon { filter: brightness(0) saturate(100%) invert(98%) sepia(7%) saturate(7337%) hue-rotate(345deg) brightness(110%) contrast(114%); } /* Apply default color filter for dark mode icon */ &.darkIcon { filter: none; }
+}
+
 @media (max-width: 768px) {
   .hide-sm {
     display: none;

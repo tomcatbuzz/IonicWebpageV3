@@ -17,6 +17,9 @@ import { CanvasCaseComponent } from '../canvas-case/canvas-case.component';
 import { chevronDownOutline, sendOutline, rocketOutline } from 'ionicons/icons';
 import { addIcons } from 'ionicons';
 
+import { Subscription } from 'rxjs';
+import { DarkModeService } from '../darkmode.service';
+
 @Component({
     selector: 'app-home',
     templateUrl: './home.component.html',
@@ -26,6 +29,12 @@ import { addIcons } from 'ionicons';
 })
 export class HomeComponent  implements OnInit, OnDestroy {  
   private timeline: GSAPTimeline | null = null;
+  isDarkMode = false;
+  private darkModeSub: Subscription | null = null;
+  private darkModeService = inject(DarkModeService);
+
+  lightModeImage = 'assets/Me-Nov-24-NEW.jpg'
+  darkModeImage = 'assets/Me-Dark-Dec24.jpg'
 
   projects = [
     { title: 'The Sprinkler Guy', description: 'Business Website', url: 'thesprinklerguyjb.com', img: "" },
@@ -38,16 +47,21 @@ export class HomeComponent  implements OnInit, OnDestroy {
     addIcons({ chevronDownOutline, sendOutline, rocketOutline })
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
+    this.darkModeSub = this.darkModeService.isDarkMode$
+      .subscribe(isDark => {
+        this.isDarkMode = isDark;
+      })
     this.init();
     // this.animate();
     // this.onWindowResize()
   }
 
-  ngOnDestroy() {
+  ngOnDestroy(): void {
     if (this.timeline) {
       this.timeline.kill();
     }
+    this.darkModeSub?.unsubscribe();
   }
     
   init() {

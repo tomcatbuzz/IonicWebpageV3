@@ -116,20 +116,24 @@
   
   h1 {
     font-size: 3.75rem;
-    margin-bottom: 15px;
+    line-height: 1;
+    margin-bottom: 20px;
     font-weight: bold;
     color: var(--ion-color-primary)
   }
 
   .web-dev {
     font-size: 3rem;
+    margin: 24px 0 20px 0;
+    line-height: 1;
     // color: var(--ion-color-dark);
   }
 
   .tagline {
     font-size: 1.2rem;
+    line-height: 1.6;
     color: var(--ion-color-medium);
-    margin-bottom: 30px;
+    margin-bottom: 15px;
   }
 
   .cta-buttons {
@@ -224,7 +228,7 @@
 // }
 
 .projects-preview {
-  background-color: var(--ion-color-light);
+  // background-color: var(--ion-color-light);
   padding: 20px;
 }
 

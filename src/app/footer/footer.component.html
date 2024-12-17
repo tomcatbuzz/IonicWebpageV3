@@ -3,17 +3,17 @@
     &copy; {{ currentYear }} Anthony Buzzelli
   </p>
   <ion-buttons class="iconWrapper" slot="secondary">
-    <ion-button>
-      <ion-icon size="large" slot="start" src="../../assets/logo-linkedin.svg"></ion-icon>
+    <ion-button (click)="openLinkedin()">
+      <ion-icon size="large" src="../../assets/logo-linkedin.svg"></ion-icon>
     </ion-button>
-    <ion-button>
-      <ion-icon size="large" slot="start" src="../../assets/logo-github.svg"></ion-icon>
+    <ion-button (click)="openGithub()">
+      <ion-icon size="large" src="../../assets/logo-github.svg"></ion-icon>
     </ion-button>
-    <ion-button>
-      <ion-icon size="large" slot="start" src="../../assets/logo-codepen.svg"></ion-icon>
+    <ion-button (click)="openCodepen()">
+      <ion-icon size="large" src="../../assets/logo-codepen.svg"></ion-icon>
     </ion-button>
-    <ion-button>
-      <ion-icon size="large" slot="start" src="../../assets/logo-twitter.svg"></ion-icon>
+    <ion-button (click)="openTwitter()">
+      <img class="twitterIcon" src="../../assets/twitter-x.svg" />
     </ion-button>
   </ion-buttons>
 </ion-toolbar>

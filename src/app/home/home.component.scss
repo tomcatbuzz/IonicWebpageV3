@@ -2,6 +2,15 @@
 //   color: var(--ion-color-primary);
 // }
 
+// ion-content {
+//   --overflow: hidden;
+// }
+
+ion-content::part(scroll) {
+  scrollbar-width: thin;
+  scrollbar-color: black white;
+}
+
 .canvasWrapper {
   // position: absolute;
   // top: 50%;

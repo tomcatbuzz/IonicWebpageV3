@@ -19,12 +19,13 @@ import { addIcons } from 'ionicons';
 
 import { Subscription } from 'rxjs';
 import { DarkModeService } from '../darkmode.service';
+import { ScrollbarDirective } from '../scrollbar3.directive';
 
 @Component({
     selector: 'app-home',
     templateUrl: './home.component.html',
     styleUrls: ['./home.component.scss'],
-    imports: [IonRippleEffect, RouterLink, NgForOf, IonImg, IonItem, IonList, IonIcon, IonLabel, IonRow, IonCol, IonGrid, IonToolbar, IonButtons, IonButton, IonMenuButton, IonTitle, IonContent, HeaderComponent, FooterComponent, ShuffleComponent, CanvasCaseComponent],
+    imports: [ScrollbarDirective, IonRippleEffect, RouterLink, NgForOf, IonImg, IonItem, IonList, IonIcon, IonLabel, IonRow, IonCol, IonGrid, IonToolbar, IonButtons, IonButton, IonMenuButton, IonTitle, IonContent, HeaderComponent, FooterComponent, ShuffleComponent, CanvasCaseComponent],
     standalone: true
 })
 export class HomeComponent  implements OnInit, OnDestroy {  
@@ -32,7 +33,7 @@ export class HomeComponent  implements OnInit, OnDestroy {
   isDarkMode = false;
   private darkModeSub: Subscription | null = null;
   private darkModeService = inject(DarkModeService);
-
+  
   lightModeImage = 'assets/Me-Nov-24-NEW.jpg'
   darkModeImage = 'assets/Me-Dark-Dec24.jpg'
 

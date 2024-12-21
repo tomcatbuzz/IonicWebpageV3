@@ -9,6 +9,14 @@
   --scrollbar-track-light: rgba(0, 0, 0, 0.1);
   --scrollbar-thumb-dark: rgba(255, 255, 255, 0.5);
   --scrollbar-track-dark: rgba(255, 255, 255, 0.1);
+  --scrollbar-width: thin;
+  --scrollbar-thumb-background: var(--ion-color-secondary-shade)
+  --scrollbar-background: var(--ion-background-color);
+
+  ion-content::part(scroll) {
+    scrollbar-width: thin;
+    scrollbar-color: var(--ion-color-primary) white;
+  }
 
   /** primary **/
   --ion-color-primary: #3880ff;
@@ -127,6 +135,11 @@
   --ion-text-color-rgb: 255,255,255;
 
   --ion-border-color: #222222;
+
+  ion-content::part(scroll) {
+    scrollbar-width: thin;
+    scrollbar-color: var(--ion-color-primary) var(--ion-background-color);
+  }
 }
 
 // .dark {

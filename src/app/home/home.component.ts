@@ -19,13 +19,12 @@ import { addIcons } from 'ionicons';
 
 import { Subscription } from 'rxjs';
 import { DarkModeService } from '../darkmode.service';
-import { ScrollbarDirective } from '../scrollbar3.directive';
 
 @Component({
     selector: 'app-home',
     templateUrl: './home.component.html',
     styleUrls: ['./home.component.scss'],
-    imports: [ScrollbarDirective, IonRippleEffect, RouterLink, NgForOf, IonImg, IonItem, IonList, IonIcon, IonLabel, IonRow, IonCol, IonGrid, IonToolbar, IonButtons, IonButton, IonMenuButton, IonTitle, IonContent, HeaderComponent, FooterComponent, ShuffleComponent, CanvasCaseComponent],
+    imports: [IonRippleEffect, RouterLink, NgForOf, IonImg, IonItem, IonList, IonIcon, IonLabel, IonRow, IonCol, IonGrid, IonToolbar, IonButtons, IonButton, IonMenuButton, IonTitle, IonContent, HeaderComponent, FooterComponent, ShuffleComponent, CanvasCaseComponent],
     standalone: true
 })
 export class HomeComponent  implements OnInit, OnDestroy {  

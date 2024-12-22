@@ -112,7 +112,11 @@ ion-toggle {
 
 @media (max-width: 768px) {
   .hide-sm {
-    display: none;
+    ion-button:not(.toggle),
+    ion-label:not(.toggle__label) {
+      display: none;
+    }
+    
   }
 }
 

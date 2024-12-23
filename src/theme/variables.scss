@@ -5,18 +5,12 @@
 /** Ionic CSS Variables **/
 :root {
   // scrollbar
-  --scrollbar-thumb-light: rgba(0, 0, 0, 0.5);
-  --scrollbar-track-light: rgba(0, 0, 0, 0.1);
-  --scrollbar-thumb-dark: rgba(255, 255, 255, 0.5);
-  --scrollbar-track-dark: rgba(255, 255, 255, 0.1);
-  --scrollbar-width: thin;
-  --scrollbar-thumb-background: var(--ion-color-secondary-shade)
-  --scrollbar-background: var(--ion-background-color);
-
   ion-content::part(scroll) {
     scrollbar-width: thin;
     scrollbar-color: var(--ion-color-primary) white;
   }
+
+  
 
   /** primary **/
   --ion-color-primary: #3880ff;

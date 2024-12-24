@@ -71,7 +71,7 @@ ion-toolbar {
 }
 
 
-.logo {
+ion-button.logo {
   font-family: 'Abril Fatface';
   font-weight: bolder;
   // color: var(ion-text);
@@ -117,6 +117,14 @@ ion-toggle {
       display: none;
     }
     
+  }
+}
+
+@media (max-width: 468px) {
+  .hide-mobile {
+    ion-button:not(.logoIcon) {
+      display: none;
+    }
   }
 }
 

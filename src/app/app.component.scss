@@ -117,3 +117,11 @@ ion-note {
 ion-item.selected {
   --color: var(--ion-color-primary);
 }
+
+ion-item {
+  cursor: pointer;
+}
+
+ion-menu.md ion-list#inbox-list {
+  border-bottom: 1px solid transparent;
+}

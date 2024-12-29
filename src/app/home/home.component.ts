@@ -1,8 +1,9 @@
 import { Component, ElementRef, HostListener, OnDestroy, OnInit, ViewChild, inject } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { NgForOf } from '@angular/common';
 // import { ActivatedRoute } from '@angular/router';
-import { IonToolbar, IonButtons, IonButton, IonMenuButton, IonTitle, IonContent, IonGrid, IonCol, IonRow, IonIcon, IonLabel, IonList, IonItem, IonImg, IonRippleEffect } from '@ionic/angular/standalone';
+import { IonToolbar, IonButtons, IonButton, IonMenuButton, IonTitle, IonContent, IonGrid, IonCol, IonRow, IonIcon, IonLabel, IonList, IonItem, IonImg, IonRippleEffect, IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle } from '@ionic/angular/standalone';
 
 import { HeaderComponent } from '../header/header.component';
 // import * as THREE from 'three';
@@ -24,7 +25,8 @@ import { DarkModeService } from '../darkmode.service';
     selector: 'app-home',
     templateUrl: './home.component.html',
     styleUrls: ['./home.component.scss'],
-    imports: [IonRippleEffect, RouterLink, NgForOf, IonImg, IonItem, IonList, IonIcon, IonLabel, IonRow, IonCol, IonGrid, IonToolbar, IonButtons, IonButton, IonMenuButton, IonTitle, IonContent, HeaderComponent, FooterComponent, ShuffleComponent, CanvasCaseComponent],
+    imports: [IonRippleEffect, RouterLink, NgForOf, IonImg, IonItem, IonList, IonIcon, IonLabel, IonRow, IonCol, IonGrid, IonToolbar, IonButtons, IonButton, IonMenuButton, IonTitle, IonContent, IonCard, IonCardContent, IonCardHeader,
+    IonCardSubtitle, IonCardTitle, HeaderComponent, FooterComponent, ShuffleComponent, CanvasCaseComponent, CommonModule],
     standalone: true
 })
 export class HomeComponent  implements OnInit, OnDestroy {  

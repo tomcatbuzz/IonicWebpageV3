@@ -17,7 +17,7 @@
 // }
 
 ion-content {
-  --padding-top: var(var(--hero-padding))
+  --padding-top: var(--hero-padding)
 }
 
 .hero-section {
@@ -29,9 +29,11 @@ ion-content {
 }
 
 .headerRow {
-  margin-top: 1rem;
+  margin-top: 3rem;
+  margin-bottom: 10rem;
   @media (max-width: 768px) {
     margin-top: 0;
+    margin-bottom: 3rem;
   }
 }
 

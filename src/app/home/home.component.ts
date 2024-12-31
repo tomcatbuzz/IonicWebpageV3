@@ -39,9 +39,9 @@ export class HomeComponent  implements OnInit, OnDestroy {
   darkModeImage = 'assets/Me-Dark-Dec24.jpg'
 
   projects = [
-    { title: 'The Sprinkler Guy', description: 'Business Website', url: 'thesprinklerguyjb.com', img: "" },
-    { title: 'Project 2', description: 'Description of project 2', url: 'some.com',
-      img: "" },
+    { title: 'The Sprinkler Guy', description: 'Business Website', url: 'thesprinklerguyjb.com', img: "", details: 'VueJs website, with ThreeJs transition, GSAP, Goolge Maps, Google Recaptcha' },
+    { title: 'Tomcatbuzz', description: 'Nuxt playground website test', url: 'tomcatbuzzweb.web.app/',
+      img: "", details: 'NuxtJS website, with ThreeJs, GSAP, Google Recaptcha' },
     // Add more projects as needed
   ];
 

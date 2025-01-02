@@ -4,12 +4,11 @@ p {
 }
 
 .iconWrapper {
-  margin-right: 60px;
+  margin-right: 65px;
 }
 
-.twitterIcon {
-  width: 32px;
-  height: 32px;
+ion-icon {
+  font-size: 32px;
 }
 
 @media screen and (max-width: 468px) {
@@ -18,5 +17,8 @@ p {
   }
   .iconWrapper {
     margin: 0;
+  }
+  ion-icon {
+    font-size: 16px;
   }
 }

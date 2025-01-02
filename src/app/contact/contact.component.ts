@@ -1,4 +1,4 @@
-import { Component, OnInit, inject, NgZone } from '@angular/core';
+import { Component, OnInit, OnDestroy, inject, NgZone } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
@@ -6,10 +6,11 @@ import { ReCaptchaV3Service } from 'ng-recaptcha-2';
 import { Router } from '@angular/router';
 import { Database, push, ref, set } from '@angular/fire/database';
 import { UIService } from '../ui.service';
-import { IonHeader, IonToolbar, IonButtons, IonMenuButton, IonTitle, IonContent, IonButton, IonInput, IonRow, IonGrid, IonCol, IonNote, IonItem, IonLabel, IonSpinner, IonCard, IonList, IonTextarea } from '@ionic/angular/standalone';
+import { IonToolbar, IonTitle, IonContent, IonButton, IonInput, IonRow, IonGrid, IonCol, IonNote, IonItem, IonLabel, IonSpinner, IonCard, IonList, IonTextarea } from '@ionic/angular/standalone';
 
 import { HeaderComponent } from '../header/header.component';
 import { FooterComponent } from '../footer/footer.component';
+import { Subscription } from 'rxjs';
 
 @Component({
     selector: 'app-contact',
@@ -20,13 +21,14 @@ import { FooterComponent } from '../footer/footer.component';
     
     // providers: [ReCaptchaV3Service]
 })
-export class ContactComponent  implements OnInit {
+export class ContactComponent  implements OnInit, OnDestroy {
   private db = inject(Database)
   private uiService = inject(UIService)
   private http = inject(HttpClient)
   private router = inject(Router)
   private zone = inject(NgZone)
   private recaptchaService = inject(ReCaptchaV3Service)
+  private recaptchaSubscription!: Subscription;
 
   constructor() {
     // console.log('Database?', this.db)
@@ -64,7 +66,7 @@ export class ContactComponent  implements OnInit {
   }
 
   onSubmit() {
-    this.recaptchaService.execute('contact')
+    this.recaptchaSubscription = this.recaptchaService.execute('contact')
     .subscribe((token) => {
       console.log(token, 'token')
       this.verifyRecaptcha(token);
@@ -112,6 +114,20 @@ export class ContactComponent  implements OnInit {
         }
       })
     })
+  }
+
+  ngOnDestroy():void {
+    if (this.recaptchaSubscription) {
+      this.recaptchaSubscription.unsubscribe();
+    }
+    const recaptchaBadges = document.getElementsByClassName('grecaptcha-badge'); 
+    console.log(recaptchaBadges, "what element ffs")
+    while (recaptchaBadges.length > 0) { 
+      const badge = recaptchaBadges[0];
+      if (badge && badge.parentNode) {
+        badge.parentNode.removeChild(badge);
+      }
+    }
   }
 }
 

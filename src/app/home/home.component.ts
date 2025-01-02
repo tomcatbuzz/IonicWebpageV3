@@ -11,11 +11,12 @@ import { HeaderComponent } from '../header/header.component';
 import { FooterComponent } from '../footer/footer.component';
 import { ShuffleComponent } from '../shuffle/shuffle.component';
 import { gsap } from 'gsap';
+import ScrollTrigger from 'gsap/ScrollTrigger'
 
 // import model from '../../assets/facefull.glb'
 import { CanvasCaseComponent } from '../canvas-case/canvas-case.component';
 
-import { chevronDownOutline, sendOutline, rocketOutline } from 'ionicons/icons';
+import { sendOutline, rocketOutline } from 'ionicons/icons';
 import { addIcons } from 'ionicons';
 
 import { Subscription } from 'rxjs';
@@ -37,19 +38,21 @@ export class HomeComponent  implements OnInit, OnDestroy {
   
   lightModeImage = 'assets/Me-Nov-24-NEW.jpg'
   darkModeImage = 'assets/Me-Dark-Dec24.jpg'
+  // sprinkerlerGuy = 'assets/sprinklerguy.png'
 
   projects = [
-    { title: 'The Sprinkler Guy', description: 'Business Website', url: 'thesprinklerguyjb.com', img: "", details: 'VueJs website, with ThreeJs transition, GSAP, Goolge Maps, Google Recaptcha' },
+    { title: 'The Sprinkler Guy', description: 'Business Website', url: 'thesprinklerguyjb.com', img: 'assets/sprinklerguy.png', details: 'VueJs website, with ThreeJs transition, GSAP, Goolge Maps, Google Recaptcha' },
     { title: 'Tomcatbuzz', description: 'Nuxt playground website test', url: 'tomcatbuzzweb.web.app/',
-      img: "", details: 'NuxtJS website, with ThreeJs, GSAP, Google Recaptcha' },
-    // Add more projects as needed
+      img: 'assets/tomcatbuzz.png', details: 'NuxtJS website, with ThreeJs, GSAP, Google Recaptcha' },
+    
   ];
 
   constructor() { 
-    addIcons({ chevronDownOutline, sendOutline, rocketOutline })
+    addIcons({ sendOutline, rocketOutline })
   }
 
   ngOnInit(): void {
+    gsap.registerPlugin(ScrollTrigger);
     this.darkModeSub = this.darkModeService.isDarkMode$
       .subscribe(isDark => {
         this.isDarkMode = isDark;
@@ -81,7 +84,7 @@ export class HomeComponent  implements OnInit, OnDestroy {
       { opacity: 1, duration: 1.7, ease: 'sin.inOut' }
     );
     this.timeline.fromTo('.image-container', { opacity: 0 },
-      { opacity: 1, duration: 1.7, ease: 'sin.inOut' }
+      { opacity: 1, duration: 1.3, ease: 'sin.inOut' }
     );
     console.log('nothing')
   }

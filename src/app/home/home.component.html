@@ -7,21 +7,19 @@
         <!-- Left Column: Text Content -->
         <ion-col size="12" size-md="6" size-lg="5" class="text-content">
           <div class="hero-text">
-            <h1>Hi, I'm Anthony</h1>
-            <p class="web-dev">Freelance full stack web developer, web designer, and <del>perfectionist.</del></p>
+            <h1>Hi, I'm Tony</h1>
+            <p class="web-dev">I am a freelance full stack web developer, web designer, and <del>perfectionist.</del></p>
             <p class="tagline">Crafting innovative solutions with passion and precision</p>
-            
             <div class="cta-buttons">
-            
-              <ion-button shape="round" expand="block" fill="solid" color="primary" routerLink="/projects">
-                View Projects
+              <ion-button shape="round" expand="block" fill="solid" color="primary" routerLink="/contact">
+                Contact
                 <ion-icon name="rocket-outline" slot="end"></ion-icon>
               </ion-button>
               
-              <ion-button shape="round" expand="block" fill="outline" color="secondary" routerLink="/contact">
+              <!-- <ion-button shape="round" expand="block" fill="outline" color="secondary" routerLink="/contact">
                 Contact
                 <ion-icon name="send-outline" slot="end"></ion-icon>
-              </ion-button>
+              </ion-button> -->
             
             </div>
           </div>
@@ -48,7 +46,7 @@
   
     <!-- Projects Preview Section -->
     <!-- <ion-grid class="scroll-indicator-section"> -->
-      <ion-row class="ion-align-items-center">
+      <ion-row class="ion-align-items-center exploreHeading">
         <ion-col size="12" class="ion-text-center">
           <div class="exploreTextWrapper">
             <h2 class="ion-text-center exploreText" [ngClass]="{'dark-mode': isDarkMode, 'light-mode': !isDarkMode}">Explore My Projects</h2>
@@ -67,7 +65,7 @@
             <ion-card-content>
               {{ project.details}}
             </ion-card-content>
-            <ion-button fill="clear"><a [href]="'https://' + project.url" target="_blank">{{ project.url }}</a></ion-button>
+            <ion-button class="card-button" fill="clear"><a [href]="'https://' + project.url" target="_blank">View Website</a></ion-button>
             <ion-button fill="clear">Action 2</ion-button>
           </ion-card>
         </ion-col>

@@ -30,7 +30,7 @@ ion-content {
 
 .headerRow {
   margin-top: 3rem;
-  margin-bottom: 10rem;
+  margin-bottom: 13rem;
   @media (max-width: 768px) {
     margin-top: 0;
     margin-bottom: 3rem;
@@ -99,7 +99,6 @@ ion-content {
 }
 
 .hero-visual {
-  // added positon below?
   position: relative;
   display: flex;
   justify-content: center;
@@ -110,7 +109,6 @@ ion-content {
     position: relative;
     width: 300px;
     aspect-ratio: 1 / 1;
-    // transform: rotate(-10deg);
     border: 3px solid var(--ion-color-primary);
     overflow: hidden;
     box-shadow: 0 10px 30px rgba(var(--ion-color-primary-rgb), 0.3),
@@ -124,24 +122,19 @@ ion-content {
     }
 
     .hero-image {
-      // original image dimension
-      // max-width: 100%;
-      // max-height: 500px;
-      // object-fit: contain;
       object-fit: cover;
-      // position: absolute;
-      // top: 0;
-      // left: 0;
       width: 100%;
       height: 100%;
-      // transform: rotate(10deg) scale(1.2);
-      
       transition: transform 0.3s ease;
       &:hover {
         transform: scale(1.25);
       }
     }
   }
+}
+
+.exploreHeading {
+  margin-bottom: 2rem;
 }
 
 .exploreTextWrapper {
@@ -180,9 +173,12 @@ ion-content {
     padding: 20px; // Border width
     background: linear-gradient(
       90deg,
-      #ff00ff,
+      var(--ion-color-primary),
       #00ff00,
-      #ff00ff
+      var(--ion-color-primary)
+      // #ff00ff,
+      // #00ff00,
+      // #ff00ff
     );
     background-size: 200% 100%;
     animation: gradientMove 3s linear infinite;
@@ -200,38 +196,20 @@ ion-content {
   }
 }
 
-// .exploreText {
-//   display: inline-block;
-//   margin-top: 12px;
-//   padding: 10px 20px;
-//   border: 2px solid var(--ion-color-primary);
-//   border-radius: 50px;
-// }
-
-.scroll-indicator-section {
-  // background-color: var(--ion-color-light);
-  padding: 10px 0;
-  // position: absolute;
-  // bottom: 0;
-  // left: 0;
-  width: 100%;
-  
-  h2 {
-    margin-bottom: 10px;
-  }
+ion-card {
+  border-radius: 10px;
+  --background: #fff;
 }
 
-// .project-img {
-//   width: 200px;
-//   height: 200px;
-// }
-
-.projects-preview {
-  // background-color: var(--ion-color-light);
-  padding: 20px;
+.project-img {
+  padding: 1rem;
 }
 
-// Responsive Adjustments
+.card-button a {
+  text-decoration: none;
+}
+
+// Responsive
 @media (max-width: 768px) {
   .hero-text {
     text-align: center;
